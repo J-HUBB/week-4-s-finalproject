@@ -26,4 +26,4 @@ function movieHTML(movie) {
         </div>`;
 }
 
-onSearchChange(fast);
+onSearchChange();
