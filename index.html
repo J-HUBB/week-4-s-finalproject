@@ -35,8 +35,8 @@
     <div class="content-wrapper flex-col align-center">
       <h1>Browse Movies</h1>
       <div class="input-wrap">
-        <input type="text" id="searchBar" placeholder="Search by Title or Year" onchange="onSearchChange(event)" />
-        <div class="search-wrapper flex justify-center align-center" onclick="showSearchResults()">
+        <input type="text" id="movieTitle" placeholder="Search by Title or Year" onchange="onSearchChange(movies.Search.Title)" />
+        <div class="search-wrapper flex justify-center align-center" onclick="getMovies()">
           <svg
             data-v-390ceb07=""
             aria-hidden="true"
@@ -61,8 +61,7 @@
     <section id="search">
       <div
         class="md-progress-bar md-indeterminate md-theme-default"
-        style="position: absolute; top: 0px; left: 0px; right: 0px"
-      >
+        style="position: absolute; top: 0px; left: 0px; right: 0px">
         <div class="md-progress-bar-track"></div>
         <div class="md-progress-bar-fill"></div>
         <div class="md-progress-bar-buffer"></div>
@@ -75,14 +74,14 @@
       </div>
 
       <div id="movies">
-        <div class="content-wrapper" id="searchResults">
+        <div class="content-wrapper" id="movieResults">
             <div class="movie-list">
                 <div class="movie">
                   <div class="movie-card">
                     <div class="movie-card__container">
-                      <h3>Title:</h4>
+                      <h3>Title:</h3>
                         <p><b>Year:</b></p>
-                        <p><b>Poster:</b></p>
+                        <img src="" alt="${moviesData.Search.Title}" id="moviePoster" style="display: none;" />
                     </div>
                   </div>   
           <div class="loading-state flex justify-center">
