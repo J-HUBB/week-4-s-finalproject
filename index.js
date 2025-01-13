@@ -1,4 +1,4 @@
-const movieTitle = document.getElementById('movieTitle')
+const movieTitle = document.getElementById('movieTitle');
 
 
 async function onSearchChange(event) {
@@ -13,8 +13,8 @@ async function onSearchChange(event) {
     
      } else {
     
-     movieResults.innerHTML = <p>No results found for '${query}'</p>;
-    
+     movieResults.innerHTML = <p>`No results found for ${query}'</p>;
+     
      
     }
 }   
@@ -27,11 +27,11 @@ async function onSearchChange(event) {
     
      <div class="movie-card__container">
     
-     <h3>${moviesData.Search.Title}</h3>
+     <h3>${movie.Title}</h3>
     
-     <p><b>Year:</b>${moviesData.Search.Year}</p>
+     <p><b>Year:</b>${movie.Year}</p>
     
-     <img src="${moviesData.Search.Poster}" alt="${moviesData.Search.Title}" />
+     <img src="${movie.Poster}" alt="${movie.Title}" />
     
      </div>
     
@@ -43,4 +43,5 @@ async function onSearchChange(event) {
         const query = document.getElementById('movieTitle').value.trim();
         onSearchChange({ target: { value: query } });
     }
+
     movieTitle.addEventListener("input", onSearchChange);
