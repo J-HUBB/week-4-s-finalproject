@@ -13,7 +13,7 @@ async function onSearchChange(event) {
     
      } else {
     
-     movieResults.innerHTML = <p>`No results found for ${query}'</p>;
+     movieResults.innerHTML = `<p>No results found for ${query}</p>`;
      
      
     }
