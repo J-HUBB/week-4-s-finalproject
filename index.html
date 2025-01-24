@@ -35,8 +35,15 @@
     <div class="content-wrapper flex-col align-center">
       <h1>Browse Movies</h1>
       <div class="input-wrap">
-        <input type="text" id="movieTitle" placeholder="Search by Title or Year" />
-        <div class="search-wrapper flex justify-center align-center" onclick="getMovies()">
+        <input
+          type="text"
+          id="movieTitle"
+          placeholder="Search by Title or Year"
+        />
+        <div
+          class="search-wrapper flex justify-center align-center"
+          onclick="getMovies()"
+        >
           <svg
             data-v-390ceb07=""
             aria-hidden="true"
@@ -61,46 +68,57 @@
     <section id="search">
       <div
         class="md-progress-bar md-indeterminate md-theme-default"
-        style="position: absolute; top: 0px; left: 0px; right: 0px">
+        style="position: absolute; top: 0px; left: 0px; right: 0px"
+      >
         <div class="md-progress-bar-track"></div>
         <div class="md-progress-bar-fill"></div>
         <div class="md-progress-bar-buffer"></div>
       </div>
       <div id="filter" class="content-wrapper justify-between">
         <h1 class="search-info">
-          <span class="black-txt">Search results:</span>
-          <span style="text-transform: capitalize"></span>
+          <span class="black-txt">Search results for: </span>
+          <span id="search-term" style="text-transform: capitalize"></span>
         </h1>
       </div>
-
-      <div id="movies">
-        <div class="content-wrapper" id="movieResults">
-            <div class="movie-list">
-                <div class="movie">
-                  <div class="movie-card">
-                    <div class="movie-card__container">
-                      <h3>Title:</h3>
-                        <p><b>Year:</b></p>
-                        <img src="" alt="${moviesData.Search.Title}" id="moviePoster" style="display: none;" />
-                    </div>
-                  </div>   
-          <div class="loading-state flex justify-center">
-            <svg aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="spinner"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              class="svg-inline--fa fa-spinner fa-w-16"
-              style="font-size: 30px; color: rgb(96, 48, 177)">
-              <path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
-                class="">
-             </path>
-            </svg>
+    </section>
+    <div id="movies">
+      <div class="content-wrapper">
+        <div class="loading-state flex justify-center">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="spinner"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            class="svg-inline--fa fa-spinner fa-w-16"
+            style="font-size: 30px; color: rgb(255 255 255)"
+          >
+            <path
+              fill="currentColor"
+              d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+              class=""
+            ></path>
+          </svg>
+        </div>
+        <div id="movieResults" class="movie-list">
+          <div class="movie">
+            <div class="movie-card">
+              <div class="movie-card__container">
+                <h3>Title:</h3>
+                <p><b>Year:</b></p>
+                <img
+                  src=""
+                  alt="${moviesData.Search.Title}"
+                  id="moviePoster"
+                  style="display: none"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </body>
 </html>

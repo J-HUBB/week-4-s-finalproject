@@ -1,11 +1,24 @@
 const movieTitle = document.getElementById('movieTitle');
-
+const searchButton = document.querySelector('.search-wrapper');
+const searchResultText = document.querySelector('.search-info span:last-child');
+let movieList;
 
 async function onSearchChange(event) {
     const query = event.target.value.trim();
     const movieResults = document.getElementById('movieResults')
+    searchResultText.textContent = query;
     const movies = await fetch(`https://www.omdbapi.com/?apikey=536c8bf5&s=${query}`);
     const moviesData = await movies.json();
+    const movieWrapper = document.querySelector('.movie-list');
+    
+    movieWrapper.classList += ' loading-state' 
+    
+    if (!movies) {
+        movies = await getMovies();
+    
+    }
+    
+    movieWrapper.classList.remove('loading-state');
     
     if (moviesData.Response === "True") {
     
@@ -21,9 +34,7 @@ async function onSearchChange(event) {
     
     function movieHTML(movie) {
     
-    return ` <div class="movie">
-    
-     <div class="movie-card">
+    return `<div class="movie-card">
     
      <div class="movie-card__container">
     
@@ -39,9 +50,24 @@ async function onSearchChange(event) {
     
     }
     
+    setTimeout(() => {
+        getMovies();
+        });
+
     function getMovies() {
         const query = document.getElementById('movieTitle').value.trim();
         onSearchChange({ target: { value: query } });
+        return new Promise((resolve) => {
+            setTimeout(() => {
+            resolve([onSearchChange])
+            }, 1000); 
+        })
     }
 
-    movieTitle.addEventListener("input", onSearchChange);
+    movieTitle.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            getMovies();
+        }
+    });
+
+    searchButton.addEventListener('click', getMovies);
