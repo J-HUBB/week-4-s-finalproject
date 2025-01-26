@@ -35,15 +35,8 @@
     <div class="content-wrapper flex-col align-center">
       <h1>Browse Movies</h1>
       <div class="input-wrap">
-        <input
-          type="text"
-          id="movieTitle"
-          placeholder="Search by Title or Year"
-        />
-        <div
-          class="search-wrapper flex justify-center align-center"
-          onclick="getMovies()"
-        >
+        <input type="text" id="movieTitle" placeholder="Search by Title or Year"/>
+        <div class="search-wrapper flex justify-center align-center" onclick="getMovies()">
           <svg
             data-v-390ceb07=""
             aria-hidden="true"
@@ -75,10 +68,10 @@
         <div class="md-progress-bar-buffer"></div>
       </div>
       <div id="filter" class="content-wrapper justify-between">
-        <h1 class="search-info">
-          <span class="black-txt">Search results for: </span>
+        <h2 class="search-info">
+          <span class="black-txt">Search results for : </span>
           <span id="search-term" style="text-transform: capitalize"></span>
-        </h1>
+        </h2>
       </div>
     </section>
     <div id="movies">
