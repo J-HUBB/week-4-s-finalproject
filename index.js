@@ -10,19 +10,21 @@ async function onSearchChange(event) {
 
   if (!query) {
     filterSection.style.display = "none";
-
+    loading.style.display = "none";
+    movieResults.style.display = "none";
     return;
   }
 
   filterSection.style.display = "flex";
-
   searchResultText.textContent = `"${query}"`;
   loading.style.display = "flex";
+  movieResults.style.display = "none";
   const movies = await fetch(
     `https://www.omdbapi.com/?apikey=536c8bf5&s=${query}`
   );
   const moviesData = await movies.json();
   loading.style.display = "none";
+  movieResults.style.display = "flex";
 
   if (moviesData.Response === "True") {
     movieResults.innerHTML = moviesData.Search.map((movie) =>
